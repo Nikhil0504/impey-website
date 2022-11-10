@@ -44,6 +44,7 @@ if sub:
         new_entry_df = pd.DataFrame.from_dict(row)
         data = data.append(new_entry_df, ignore_index=True)
     data.to_pickle("Datasets/links.pkl")
+    data.to_csv('test.csv')
 
 if st.button("Show URLs"):
-    st.dataframe(data['URL'], use_container_width=True)
+    st.dataframe(data[['URL', 'Categories']], use_container_width=True)
